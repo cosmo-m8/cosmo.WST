@@ -4,14 +4,14 @@ Write-Host "Checking Choco..."
 
 if (Test-Path C:\ProgramData\chocolatey\choco.exe){
     'Choco Already Installed'
-    $ResultText.text = "`r`n" + "Chocolatey is Installed."
+    $ResultText.text = "Chocolatey Already Installed"
     $installPN.Enabled = $True
     $choco.Enabled = $false
 }  
 else{
     
 	Write-Host "Choco not found"
-    $ResultText.text = "`r`n" + "Chocolatey not found. For Installs, install Chocolatey first."
+    $ResultText.text = "`r`n" + "Chocolatey not found..." + "`r`n" +  "Please install Chocolatey first!!!"
 
 }
 

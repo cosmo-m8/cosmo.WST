@@ -19,7 +19,8 @@ function Write-Log{
 
 function Install-Software{
     $AppName = $args[0]
-    Write-Log ("`r`n" + "Installing " + $AppName + "... Please Wait")
+    Write-Log ("`r`n" + "Installing " + $AppName)
+    Write-Log ("...Please Wait")
     #choco...
     Write-Log ("Finished Installing " + $AppName)
     Write-Log (" >>> Ready for Next Task")
