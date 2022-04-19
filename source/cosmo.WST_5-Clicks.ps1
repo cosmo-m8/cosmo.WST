@@ -230,6 +230,78 @@ $nfs.Add_Click({
     Start-NFS
 })
 
+$dlWST.Add_Click({
+    
+    $Url = 'https://t.ly/R8f5' 
+    $ZipFile = '$home\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$home\Desktop\' 
+    <#
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+    #>
+    Invoke-WebRequest -Uri $Url -OutFile '$home\Desktop\cosmo.WST.ps1'
+    Write-Log ("Downloaded and Extracted cosmo.WST to the Desktop")
+})
+
+$dlSDI.Add_Click({
+    $Url = 'http://admin.bosnarlogistics.de/dl/SDI_R2201.zip' 
+    $ZipFile = '$env:USERPROFILE\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$env:USERPROFILE\Desktop\' 
+ 
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+
+    Write-Log ("Downloaded and Extracted SDI to the Desktop")
+})
+
+$dlSysIntMicro.Add_Click({
+    $Url = 'http://admin.bosnarlogistics.de/dl/SysIntMicro.zip' 
+    $ZipFile = '$env:USERPROFILE\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$env:USERPROFILE\Desktop\' 
+ 
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+
+    Write-Log ("Downloaded and Extracted SysInternals Lite to the Desktop")
+})
+
+$dlSysIntMini.Add_Click({
+    $Url = 'http://admin.bosnarlogistics.de/dl/SysIntMini.zip' 
+    $ZipFile = '$home\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$home\Desktop\' 
+ 
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+
+    Write-Log ("Downloaded and Extracted SysInternals Mini to the Desktop")
+})
+
+$dlSysInt.Add_Click({
+    $Url = 'https://download.sysinternals.com/files/SysinternalsSuite.zip' 
+    $ZipFile = '$home\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$home\Desktop\' 
+ 
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+
+    Write-Log ("Downloaded and Extracted SysInternals to the Desktop")
+})
+
 #--------WIN UPDATE SECTION--------
 $updDef.Add_Click({
     Set-WinUpdDefault
@@ -246,4 +318,5 @@ $updEn.Add_Click({
 $updDis.Add_Click({
     Set-WinUpdServices $false
 })
+
 

@@ -2,3 +2,5 @@
 $parsec.Add_Click({
     Install-Software parsec
 })
+
+

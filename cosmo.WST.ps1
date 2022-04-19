@@ -2,6 +2,7 @@ Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
 #--------------------GET ADMIN PRIVILEGE--------------------
+<#
 $ErrorActionPreference = 'SilentlyContinue'
 $wshell = New-Object -ComObject Wscript.Shell
 $Button = [System.Windows.MessageBoxButton]::YesNoCancel
@@ -10,10 +11,11 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
 	Exit
 }
+#>
 
 
 #--------------------GLOBAL VARIABLES--------------------
-$ver            = "v0.8.0-220413"
+$ver            = "v1.0.0-220419"
 #$colBG			= "#e9e9e9"			# Grey 				- Forms
 #$colBG			= "#8BC34A"			# Light Green 500	- Forms
 #$colBG			= "#7986CB"			# Indigo 300		- Forms
@@ -75,8 +77,8 @@ $Form.MaximumSize             = New-Object System.Drawing.Size($MaxWid, $MaxHei)
 
 $Form.Icon                    = [System.Drawing.Icon]::FromHandle((New-Object System.Drawing.Bitmap -Argument $stream).GetHIcon())
 
-#--------------------GUI ELEMENTS--------------------
 
+#--------------------GUI ELEMENTS--------------------
 $backPN                          = New-Object system.Windows.Forms.Panel
 $backPN.height                   = 527
 $backPN.width                    = 1009
@@ -535,6 +537,52 @@ $nfs.height                      = 30
 $nfs.location                    = New-Object System.Drawing.Point(1,156)
 $nfs.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$dlWST                           = New-Object system.Windows.Forms.Button
+$dlWST.text                      = "Download cosmo.WST"
+$dlWST.width                     = 200
+$dlWST.height                    = 30
+$dlWST.location                  = New-Object System.Drawing.Point(1,311)
+$dlWST.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlWST.BackColor                 = $colBT
+$genTT.SetToolTip($dlWST, "Download this Script`r`nfor Offline-Use")
+
+$dlSDI                           = New-Object system.Windows.Forms.Button
+$dlSDI.text                      = "Download SDI"
+$dlSDI.width                     = 200
+$dlSDI.height                    = 30
+$dlSDI.location                  = New-Object System.Drawing.Point(1,342)
+$dlSDI.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlSDI.BackColor                 = $colBT
+$genTT.SetToolTip($dlSDI, "Download Snappy`r`nDriver Installer")
+
+$dlSysIntMicro                   = New-Object system.Windows.Forms.Button
+$dlSysIntMicro.text              = "Download SysInternals Lite"
+$dlSysIntMicro.width             = 200
+$dlSysIntMicro.height            = 30
+$dlSysIntMicro.location          = New-Object System.Drawing.Point(1,373)
+$dlSysIntMicro.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlSysIntMicro.BackColor         = $colBT
+$genTT.SetToolTip($dlSysIntMicro, "Download SysInternals:`r`n> AutoRuns`r`n> ProcessExplorer")
+
+$dlSysIntMini                    = New-Object system.Windows.Forms.Button
+$dlSysIntMini.text               = "Download SysInternals Mini"
+$dlSysIntMini.width              = 200
+$dlSysIntMini.height             = 30
+$dlSysIntMini.location           = New-Object System.Drawing.Point(1,404)
+$dlSysIntMini.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlSysIntMini.BackColor          = $colBT
+$genTT.SetToolTip($dlSysIntMini, "Download SysInternals:`r`n> AutoRuns`r`n> AutoRuns CLI`r`n> DiskView`r`n> ProcessExplorer`r`n> ProcessMonitor")
+
+$dlSysInt                        = New-Object system.Windows.Forms.Button
+$dlSysInt.text                   = "Download SysInternals"
+$dlSysInt.width                  = 200
+$dlSysInt.height                 = 30
+$dlSysInt.location               = New-Object System.Drawing.Point(1,435)
+$dlSysInt.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlSysInt.BackColor              = $colBT
+$genTT.SetToolTip($dlSysInt, "Download SysInternals:`r`n> Full Suite")
+
+
 #--------SEPERATOR--------
 $line3PN                         = New-Object system.Windows.Forms.Panel
 $line3PN.height                  = 508
@@ -662,7 +710,7 @@ $installPN.controls.AddRange(@($cosmo,$bundlesLB,$essentials,$doctools,$mediatoo
 
 $tweaksPN.controls.AddRange(@($restorePt,$essenCfg,$UessenCfg,$cosmoCfg,$UcosmoCfg,$QoL,$UQoL,$darkMode,$UdarkMode,$perfVfx,$UperfVfx,$telem,$Utelem,$loctrack,$Uloctrack,$oneDrive,$UoneDrive,$discortana,$Udiscortana,$actionc,$Uactionc,$bgApps,$UbgApps,$utils,$Uutils,$clipbH,$UclipbH,$UTCTime,$UUTCTime))
 
-$fixesPN.controls.AddRange(@($phoneFix,$updReset,$power,$powerCfg,$hyperV,$nfs))
+$fixesPN.controls.AddRange(@($phoneFix,$updReset,$power,$powerCfg,$hyperV,$nfs,$dlWST,$dlSDI,$dlSysIntMicro,$dlSysIntMini,$dlSysInt))
 
 $updatesPN.controls.AddRange(@($updDef,$updLB1,$updLB2,$updLB3,$updLB4,$updSec,$updEn,$updDis,$updDisLB))
 
@@ -670,7 +718,7 @@ $updatesPN.controls.AddRange(@($updDef,$updLB1,$updLB2,$updLB3,$updLB4,$updSec,$
 #--------------------APP GUI SPECS--------------------
 $appForm                            = New-Object system.Windows.Forms.Form
 $appForm.ClientSize                 = New-Object System.Drawing.Point(1050,400)
-$appForm.text                       = "cosmo.WST • Software Installation Menu"
+$appForm.text                       = "         [   cosmo.WST   ]         |      Software Installation Menu"
 $appForm.StartPosition              = "CenterScreen"
 $appForm.TopMost                    = $false
 $appForm.BackColor                  = [System.Drawing.ColorTranslator]::FromHtml($colBG)
@@ -756,67 +804,12 @@ $vlc.location                   = New-Object System.Drawing.Point(340,32)
 $vlc.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 <#
-
 #--------SEPERATOR--------
 $line1PN                         = New-Object system.Windows.Forms.Panel
 $line1PN.height                  = 508
 $line1PN.width                   = 2
 $line1PN.location                = New-Object System.Drawing.Point(177,10)
 $line1PN.BackColor               = $colSEP
-
-
-
-
-
-
-$audcity                         = New-Object system.Windows.Forms.Button
-$audcity.text                    = "AudaCity"
-$audcity.width                   = 150
-$audcity.height                  = 30
-$audcity.location                = New-Object System.Drawing.Point(0,190)
-$audcity.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$steam                           = New-Object system.Windows.Forms.Button
-$steam.text                      = "Steam"
-$steam.width                     = 150
-$steam.height                    = 30
-$steam.location                  = New-Object System.Drawing.Point(0,220)
-$steam.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$itunes                          = New-Object system.Windows.Forms.Button
-$itunes.text                     = "iTunes"
-$itunes.width                    = 150
-$itunes.height                   = 30
-$itunes.location                 = New-Object System.Drawing.Point(0,250)
-$itunes.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$icloud                          = New-Object system.Windows.Forms.Button
-$icloud.text                     = "VirtualBox"
-$icloud.width                    = 150
-$icloud.height                   = 30
-$icloud.location                 = New-Object System.Drawing.Point(0,280)
-$icloud.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$keepass                         = New-Object system.Windows.Forms.Button
-$keepass.text                    = "KeePass"
-$keepass.width                   = 150
-$keepass.height                  = 30
-$keepass.location                = New-Object System.Drawing.Point(0,310)
-$keepass.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$tviewer                         = New-Object system.Windows.Forms.Button
-$tviewer.text                    = "TeamViewer"
-$tviewer.width                   = 150
-$tviewer.height                  = 30
-$tviewer.location                = New-Object System.Drawing.Point(0,300)
-$tviewer.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$chocogui                        = New-Object system.Windows.Forms.Button
-$chocogui.text                   = "ChocolateyGUI"
-$chocogui.width                  = 150
-$chocogui.height                 = 30
-$chocogui.location               = New-Object System.Drawing.Point(0,330)
-$chocogui.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 #>
 
 
@@ -826,7 +819,6 @@ $appFormPN.controls.AddRange(@($fzilla,$utilsLB,$parsec,$vbox,$docappsLB,$vlc,$m
 
 
 #--------------------BUTTON CLICK EVENTS--------------------
-
 #--------INSTALL SECTION--------
 $choco.Add_Click({
     Write-Log ("`r`n" + "Installing Chocolatey")
@@ -1058,6 +1050,78 @@ $nfs.Add_Click({
     Start-NFS
 })
 
+$dlWST.Add_Click({
+    
+    $Url = 'https://t.ly/R8f5' 
+    $ZipFile = '$home\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$home\Desktop\' 
+    <#
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+    #>
+    Invoke-WebRequest -Uri $Url -OutFile '$home\Desktop\cosmo.WST.ps1'
+    Write-Log ("Downloaded and Extracted cosmo.WST to the Desktop")
+})
+
+$dlSDI.Add_Click({
+    $Url = 'http://admin.bosnarlogistics.de/dl/SDI_R2201.zip' 
+    $ZipFile = '$env:USERPROFILE\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$env:USERPROFILE\Desktop\' 
+ 
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+
+    Write-Log ("Downloaded and Extracted SDI to the Desktop")
+})
+
+$dlSysIntMicro.Add_Click({
+    $Url = 'http://admin.bosnarlogistics.de/dl/SysIntMicro.zip' 
+    $ZipFile = '$env:USERPROFILE\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$env:USERPROFILE\Desktop\' 
+ 
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+
+    Write-Log ("Downloaded and Extracted SysInternals Lite to the Desktop")
+})
+
+$dlSysIntMini.Add_Click({
+    $Url = 'http://admin.bosnarlogistics.de/dl/SysIntMini.zip' 
+    $ZipFile = '$home\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$home\Desktop\' 
+ 
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+
+    Write-Log ("Downloaded and Extracted SysInternals Mini to the Desktop")
+})
+
+$dlSysInt.Add_Click({
+    $Url = 'https://download.sysinternals.com/files/SysinternalsSuite.zip' 
+    $ZipFile = '$home\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination= '$home\Desktop\' 
+ 
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+
+    Write-Log ("Downloaded and Extracted SysInternals to the Desktop")
+})
+
 #--------WIN UPDATE SECTION--------
 $updDef.Add_Click({
     Set-WinUpdDefault
@@ -1091,6 +1155,7 @@ function Write-Log{
     $ResultText.AppendText("`r`n"+$LogMsg)
 }
 
+#--------INSTALL FXs--------
 function Use-Choco{
     $doChoco = $args
 

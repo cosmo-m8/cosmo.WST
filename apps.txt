@@ -1,43 +1,89 @@
-﻿1cP-choco install 7zip
+﻿--------------Utilities--------------
 
-1cP-choco install vlc
+googlechrome
 
-1cP-choco install sumatrapdf
+googledrive
 
-3cP-choco install libreoffice-fresh
+icloud
 
-2cP-choco install googlechrome
+microsoft-windows-terminal
 
-2cP-choco install google-drive-file-stream
-
-3cP-choco install gimp
-
-3cP-choco install vscode
-
-1cP-choco install notepadplusplus
-
-1cP-choco install microsoft-windows-terminal
+keepass
 
 
---------------
-choco install filezilla
+--------------System Tools--------------
 
-choco install virtualbox
+7zip
 
-choco install audacity
-choco install audacity-lame
+parsec
 
-choco install steam-client
+teamviewer
 
-choco install itunes
+filezilla
 
-choco install icloud
+virtualbox
 
-choco install keepass
+etcher
 
-choco install parsec
+putty
 
-choco install teamviewer
+advanced-ipscanner
 
-choco install jre8
-choco install git
+
+--------------Media Tools--------------
+
+vlc
+
+Media Player Classic
+mpc-be
+
+itunes
+
+gimp
+
+irfanview
+
+audacity
+
+audacity-lame
+
+audacity-ffmpeg
+
+
+--------------Document Tools--------------
+
+sumatrapdf
+
+adobereader
+
+#LibreOffice Newest
+libreoffice-fresh
+
+#LibreOffice Stable
+libreoffice-still
+
+vscode
+
+notepadplusplus
+
+
+--------------Gaming Tools--------------
+
+steam-client
+
+discord
+
+
+--------------Dependencies--------------
+
+git
+
+gitkraken
+
+javaruntime
+
+Java Runtime Environment x64 / x32
+jre8
+
+NVM for Windows (node.js Manager)
+nvm

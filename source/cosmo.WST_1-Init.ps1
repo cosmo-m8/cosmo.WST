@@ -15,7 +15,7 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 
 
 #--------------------GLOBAL VARIABLES--------------------
-$ver            = "v0.8.0-220413"
+$ver            = "v1.0.0-220419"
 #$colBG			= "#e9e9e9"			# Grey 				- Forms
 #$colBG			= "#8BC34A"			# Light Green 500	- Forms
 #$colBG			= "#7986CB"			# Indigo 300		- Forms
@@ -51,3 +51,5 @@ $genTT.ReshowDelay               = 100
 $genTT.ShowAlways                = $True
 $genTT.ToolTipIcon               = "Info"
 $genTT.ToolTipTitle              = "More Info:"
+
+

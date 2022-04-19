@@ -14,8 +14,8 @@ $Form.MaximumSize             = New-Object System.Drawing.Size($MaxWid, $MaxHei)
 
 $Form.Icon                    = [System.Drawing.Icon]::FromHandle((New-Object System.Drawing.Bitmap -Argument $stream).GetHIcon())
 
-#--------------------GUI ELEMENTS--------------------
 
+#--------------------GUI ELEMENTS--------------------
 $backPN                          = New-Object system.Windows.Forms.Panel
 $backPN.height                   = 527
 $backPN.width                    = 1009
@@ -474,6 +474,52 @@ $nfs.height                      = 30
 $nfs.location                    = New-Object System.Drawing.Point(1,156)
 $nfs.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$dlWST                           = New-Object system.Windows.Forms.Button
+$dlWST.text                      = "Download cosmo.WST"
+$dlWST.width                     = 200
+$dlWST.height                    = 30
+$dlWST.location                  = New-Object System.Drawing.Point(1,311)
+$dlWST.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlWST.BackColor                 = $colBT
+$genTT.SetToolTip($dlWST, "Download this Script`r`nfor Offline-Use")
+
+$dlSDI                           = New-Object system.Windows.Forms.Button
+$dlSDI.text                      = "Download SDI"
+$dlSDI.width                     = 200
+$dlSDI.height                    = 30
+$dlSDI.location                  = New-Object System.Drawing.Point(1,342)
+$dlSDI.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlSDI.BackColor                 = $colBT
+$genTT.SetToolTip($dlSDI, "Download Snappy`r`nDriver Installer")
+
+$dlSysIntMicro                   = New-Object system.Windows.Forms.Button
+$dlSysIntMicro.text              = "Download SysInternals Lite"
+$dlSysIntMicro.width             = 200
+$dlSysIntMicro.height            = 30
+$dlSysIntMicro.location          = New-Object System.Drawing.Point(1,373)
+$dlSysIntMicro.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlSysIntMicro.BackColor         = $colBT
+$genTT.SetToolTip($dlSysIntMicro, "Download SysInternals:`r`n> AutoRuns`r`n> ProcessExplorer")
+
+$dlSysIntMini                    = New-Object system.Windows.Forms.Button
+$dlSysIntMini.text               = "Download SysInternals Mini"
+$dlSysIntMini.width              = 200
+$dlSysIntMini.height             = 30
+$dlSysIntMini.location           = New-Object System.Drawing.Point(1,404)
+$dlSysIntMini.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlSysIntMini.BackColor          = $colBT
+$genTT.SetToolTip($dlSysIntMini, "Download SysInternals:`r`n> AutoRuns`r`n> AutoRuns CLI`r`n> DiskView`r`n> ProcessExplorer`r`n> ProcessMonitor")
+
+$dlSysInt                        = New-Object system.Windows.Forms.Button
+$dlSysInt.text                   = "Download SysInternals"
+$dlSysInt.width                  = 200
+$dlSysInt.height                 = 30
+$dlSysInt.location               = New-Object System.Drawing.Point(1,435)
+$dlSysInt.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlSysInt.BackColor              = $colBT
+$genTT.SetToolTip($dlSysInt, "Download SysInternals:`r`n> Full Suite")
+
+
 #--------SEPERATOR--------
 $line3PN                         = New-Object system.Windows.Forms.Panel
 $line3PN.height                  = 508
@@ -601,7 +647,8 @@ $installPN.controls.AddRange(@($cosmo,$bundlesLB,$essentials,$doctools,$mediatoo
 
 $tweaksPN.controls.AddRange(@($restorePt,$essenCfg,$UessenCfg,$cosmoCfg,$UcosmoCfg,$QoL,$UQoL,$darkMode,$UdarkMode,$perfVfx,$UperfVfx,$telem,$Utelem,$loctrack,$Uloctrack,$oneDrive,$UoneDrive,$discortana,$Udiscortana,$actionc,$Uactionc,$bgApps,$UbgApps,$utils,$Uutils,$clipbH,$UclipbH,$UTCTime,$UUTCTime))
 
-$fixesPN.controls.AddRange(@($phoneFix,$updReset,$power,$powerCfg,$hyperV,$nfs))
+$fixesPN.controls.AddRange(@($phoneFix,$updReset,$power,$powerCfg,$hyperV,$nfs,$dlWST,$dlSDI,$dlSysIntMicro,$dlSysIntMini,$dlSysInt))
 
 $updatesPN.controls.AddRange(@($updDef,$updLB1,$updLB2,$updLB3,$updLB4,$updSec,$updEn,$updDis,$updDisLB))
+
 

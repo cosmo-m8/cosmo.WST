@@ -7,6 +7,7 @@ function Write-Log{
     $ResultText.AppendText("`r`n"+$LogMsg)
 }
 
+#--------INSTALL FXs--------
 function Use-Choco{
     $doChoco = $args
 
@@ -897,4 +898,5 @@ function Set-WinUpdServices{
 
     }
 }
+
 

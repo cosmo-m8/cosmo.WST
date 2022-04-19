@@ -1,7 +1,7 @@
 #--------------------APP GUI SPECS--------------------
 $appForm                            = New-Object system.Windows.Forms.Form
 $appForm.ClientSize                 = New-Object System.Drawing.Point(1050,400)
-$appForm.text                       = "cosmo.WST • Software Installation Menu"
+$appForm.text                       = "         [   cosmo.WST   ]         |      Software Installation Menu"
 $appForm.StartPosition              = "CenterScreen"
 $appForm.TopMost                    = $false
 $appForm.BackColor                  = [System.Drawing.ColorTranslator]::FromHtml($colBG)
@@ -87,71 +87,17 @@ $vlc.location                   = New-Object System.Drawing.Point(340,32)
 $vlc.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 <#
-
 #--------SEPERATOR--------
 $line1PN                         = New-Object system.Windows.Forms.Panel
 $line1PN.height                  = 508
 $line1PN.width                   = 2
 $line1PN.location                = New-Object System.Drawing.Point(177,10)
 $line1PN.BackColor               = $colSEP
-
-
-
-
-
-
-$audcity                         = New-Object system.Windows.Forms.Button
-$audcity.text                    = "AudaCity"
-$audcity.width                   = 150
-$audcity.height                  = 30
-$audcity.location                = New-Object System.Drawing.Point(0,190)
-$audcity.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$steam                           = New-Object system.Windows.Forms.Button
-$steam.text                      = "Steam"
-$steam.width                     = 150
-$steam.height                    = 30
-$steam.location                  = New-Object System.Drawing.Point(0,220)
-$steam.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$itunes                          = New-Object system.Windows.Forms.Button
-$itunes.text                     = "iTunes"
-$itunes.width                    = 150
-$itunes.height                   = 30
-$itunes.location                 = New-Object System.Drawing.Point(0,250)
-$itunes.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$icloud                          = New-Object system.Windows.Forms.Button
-$icloud.text                     = "VirtualBox"
-$icloud.width                    = 150
-$icloud.height                   = 30
-$icloud.location                 = New-Object System.Drawing.Point(0,280)
-$icloud.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$keepass                         = New-Object system.Windows.Forms.Button
-$keepass.text                    = "KeePass"
-$keepass.width                   = 150
-$keepass.height                  = 30
-$keepass.location                = New-Object System.Drawing.Point(0,310)
-$keepass.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$tviewer                         = New-Object system.Windows.Forms.Button
-$tviewer.text                    = "TeamViewer"
-$tviewer.width                   = 150
-$tviewer.height                  = 30
-$tviewer.location                = New-Object System.Drawing.Point(0,300)
-$tviewer.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$chocogui                        = New-Object system.Windows.Forms.Button
-$chocogui.text                   = "ChocolateyGUI"
-$chocogui.width                  = 150
-$chocogui.height                 = 30
-$chocogui.location               = New-Object System.Drawing.Point(0,330)
-$chocogui.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 #>
 
 
 $appForm.controls.AddRange(@($appFormPN,$appFormLB))
 
 $appFormPN.controls.AddRange(@($fzilla,$utilsLB,$parsec,$vbox,$docappsLB,$vlc,$mediaappsLB))
+
 
