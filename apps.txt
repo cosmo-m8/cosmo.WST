@@ -1,0 +1,43 @@
+﻿1cP-choco install 7zip
+
+1cP-choco install vlc
+
+1cP-choco install sumatrapdf
+
+3cP-choco install libreoffice-fresh
+
+2cP-choco install googlechrome
+
+2cP-choco install google-drive-file-stream
+
+3cP-choco install gimp
+
+3cP-choco install vscode
+
+1cP-choco install notepadplusplus
+
+1cP-choco install microsoft-windows-terminal
+
+
+--------------
+choco install filezilla
+
+choco install virtualbox
+
+choco install audacity
+choco install audacity-lame
+
+choco install steam-client
+
+choco install itunes
+
+choco install icloud
+
+choco install keepass
+
+choco install parsec
+
+choco install teamviewer
+
+choco install jre8
+choco install git
