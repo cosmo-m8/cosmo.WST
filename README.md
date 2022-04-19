@@ -5,9 +5,9 @@
 ## How to Run
 Paste this command into Powershell (admin):
 ```
-iex ((New-Object System.Net.WebClient).DownloadString('https://git.io'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://t.ly/R8f5'))
 ```
 Or, shorter:
 ```
-iwr -useb https://git.io | iex
+iwr -useb https://t.ly/R8f5 | iex
 ```
