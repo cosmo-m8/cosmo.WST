@@ -1,2 +1,4 @@
 # cosmo.WST
-cosmo.WST • cosmo's Windows Setup Toolbox
+cosmo.WST
+v1.0.0-220419
+cosmo's Windows Setup Toolbox
