@@ -1,4 +1,5 @@
 #--------------------SCRIPT EXECUTION--------------------
+
 #--------CHOCOLATEY CHECK--------
 Write-Host "Checking Choco..."
 
