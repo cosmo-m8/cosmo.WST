@@ -3,7 +3,7 @@
 #--------LOGGER FX--------
 function Write-Log{
     $LogMsg = $args[0]
-    Write-Host $LogMsg
+    Write-Host ("`r`n"+$LogMsg)
     $ResultText.AppendText("`r`n"+$LogMsg)
 }
 
@@ -14,7 +14,7 @@ function Use-Choco{
     $installPN.Enabled = $false
     $tweaksPN.Enabled = $false
     $fixesPN.Enabled = $false
-    $updatesPN.Enabled = $false
+#    $updatesPN.Enabled = $false
 
     $chocoblock = {
         choco $args -y | Out-Host
@@ -32,7 +32,7 @@ function Use-Choco{
     $installPN.Enabled = $True
     $tweaksPN.Enabled = $True
     $fixesPN.Enabled = $True
-    $updatesPN.Enabled = $True
+#    $updatesPN.Enabled = $True
 
 }
 
@@ -876,6 +876,39 @@ function Start-NFS{
     nfsadmin client localhost config fileaccess=755 SecFlavors=+sys -krb5 -krb5i
 
     Write-Log ("NFS is now setup for user based NFS mounts")
+    Write-Log (" >>> Ready for Next Task")
+}
+
+function Get-ZIPtoDesk{
+    $dlURL          = $args[0]
+    $dlDEST         = $args[1]
+    $dlZIP          = $args[2]
+
+    if ($dlDEST -eq "Desktop"){
+
+    }
+    else{
+
+    }
+
+    if ($dlZIP -eq $True){
+
+    }
+    else{
+
+    }
+
+    $Url            = $dlURL
+    $ZipFile        = '$env:USERPROFILE\Desktop\' + $(Split-Path -Path $Url -Leaf) 
+    $Destination    = $dlDEST
+ 
+    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+
+    $ExtractShell = New-Object -ComObject Shell.Application 
+    $Files = $ExtractShell.Namespace($ZipFile).Items() 
+    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+
+    Write-Log ("Downloaded and Extracted SDI to the Desktop")
     Write-Log (" >>> Ready for Next Task")
 }
 

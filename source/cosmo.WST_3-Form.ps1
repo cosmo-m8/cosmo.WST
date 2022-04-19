@@ -119,7 +119,7 @@ $deps.BackColor                  = $colBT
 $instTT.SetToolTip($deps, "Java Runtime Environment`r`nGIT`r`nNVM for Windows (node.js)")
 
 $cosmo2                          = New-Object system.Windows.Forms.Button
-$cosmo2.text                     = "cosmoPack +"
+$cosmo2.text                     = "cosmoPack+"
 $cosmo2.width                    = 150
 $cosmo2.height                   = 30
 $cosmo2.location                 = New-Object System.Drawing.Point(1,280)
@@ -475,7 +475,7 @@ $nfs.location                    = New-Object System.Drawing.Point(1,156)
 $nfs.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $dlWST                           = New-Object system.Windows.Forms.Button
-$dlWST.text                      = "Download cosmo.WST"
+$dlWST.text                      = "DL cosmo.WST"
 $dlWST.width                     = 200
 $dlWST.height                    = 30
 $dlWST.location                  = New-Object System.Drawing.Point(1,311)
@@ -484,7 +484,7 @@ $dlWST.BackColor                 = $colBT
 $genTT.SetToolTip($dlWST, "Download this Script`r`nfor Offline-Use")
 
 $dlSDI                           = New-Object system.Windows.Forms.Button
-$dlSDI.text                      = "Download SDI"
+$dlSDI.text                      = "DL SDI"
 $dlSDI.width                     = 200
 $dlSDI.height                    = 30
 $dlSDI.location                  = New-Object System.Drawing.Point(1,342)
@@ -493,7 +493,7 @@ $dlSDI.BackColor                 = $colBT
 $genTT.SetToolTip($dlSDI, "Download Snappy`r`nDriver Installer")
 
 $dlSysIntMicro                   = New-Object system.Windows.Forms.Button
-$dlSysIntMicro.text              = "Download SysInternals Lite"
+$dlSysIntMicro.text              = "DL SysInternals Lite"
 $dlSysIntMicro.width             = 200
 $dlSysIntMicro.height            = 30
 $dlSysIntMicro.location          = New-Object System.Drawing.Point(1,373)
@@ -502,7 +502,7 @@ $dlSysIntMicro.BackColor         = $colBT
 $genTT.SetToolTip($dlSysIntMicro, "Download SysInternals:`r`n> AutoRuns`r`n> ProcessExplorer")
 
 $dlSysIntMini                    = New-Object system.Windows.Forms.Button
-$dlSysIntMini.text               = "Download SysInternals Mini"
+$dlSysIntMini.text               = "DL SysInternals Mini"
 $dlSysIntMini.width              = 200
 $dlSysIntMini.height             = 30
 $dlSysIntMini.location           = New-Object System.Drawing.Point(1,404)
@@ -511,7 +511,7 @@ $dlSysIntMini.BackColor          = $colBT
 $genTT.SetToolTip($dlSysIntMini, "Download SysInternals:`r`n> AutoRuns`r`n> AutoRuns CLI`r`n> DiskView`r`n> ProcessExplorer`r`n> ProcessMonitor")
 
 $dlSysInt                        = New-Object system.Windows.Forms.Button
-$dlSysInt.text                   = "Download SysInternals"
+$dlSysInt.text                   = "DL SysInternals Suite"
 $dlSysInt.width                  = 200
 $dlSysInt.height                 = 30
 $dlSysInt.location               = New-Object System.Drawing.Point(1,435)
@@ -643,7 +643,7 @@ $verLB.Font                      = New-Object System.Drawing.Font('Calibri',8,[S
 
 $Form.controls.AddRange(@($choco,$installPN,$installLB,$tweaksPN,$tweaksLB,$fixesPN,$fixesLB,$ResultText,$verLB,$statusLB,$updatesPN,$winUpdLB,$line1PN,$line2PN,$line3PN,$backPN))
 
-$installPN.controls.AddRange(@($cosmo,$bundlesLB,$essentials,$doctools,$mediatools,$consumption,$devtools,$deps,$tmpBT6,$miscLB,$openAppForm,$updChocos,$tmpBT9,$tmpBT10))
+$installPN.controls.AddRange(@($cosmo,$bundlesLB,$essentials,$doctools,$mediatools,$consumption,$devtools,$deps,$cosmo2,$miscLB,$openAppForm,$updChocos,$tmpBT9,$tmpBT10))
 
 $tweaksPN.controls.AddRange(@($restorePt,$essenCfg,$UessenCfg,$cosmoCfg,$UcosmoCfg,$QoL,$UQoL,$darkMode,$UdarkMode,$perfVfx,$UperfVfx,$telem,$Utelem,$loctrack,$Uloctrack,$oneDrive,$UoneDrive,$discortana,$Udiscortana,$actionc,$Uactionc,$bgApps,$UbgApps,$utils,$Uutils,$clipbH,$UclipbH,$UTCTime,$UUTCTime))
 
