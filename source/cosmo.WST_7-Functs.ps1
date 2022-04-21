@@ -10,14 +10,21 @@ function Write-Log{
 #--------INSTALL FXs--------
 function Use-Choco{
     $doChoco = $args
-
+    
     $installPN.Enabled = $false
     $tweaksPN.Enabled = $false
     $fixesPN.Enabled = $false
 #    $updatesPN.Enabled = $false
 
-    $chocoblock = {
-        choco $args -y | Out-Host
+    if ($args[1] -eq "parsec"){
+        $chocoblock = {
+            choco install parsec --params='/Shared' --force -y | Out-Host
+        }
+    }
+    else{
+        $chocoblock = {
+            choco $args -y | Out-Host
+        }
     }
 
     Start-Job -ScriptBlock $chocoblock -ArgumentList $doChoco -Name "bgchocojob"
@@ -37,12 +44,14 @@ function Use-Choco{
 }
 
 function Install-Software{
-    $AppName = $args[0]
+    $AppName = $args
+    
     Write-Log ("`r`n" + "Installing " + $AppName)
     Write-Log ("...Please Wait")
     Use-Choco install $AppName
     Write-Log ("Finished Installing " + $AppName)
     Write-Log (" >>> Ready for Next Task")
+    #>
 }
 
 function Install-Updates{
@@ -885,7 +894,7 @@ function Get-ZIPtoDesk{
     $dlZIP          = $args[2]
 
     if ($dlDEST -eq "Desktop"){
-
+        $DesktopPath = [Environment]::GetFolderPath("Desktop")
     }
     else{
 
@@ -930,6 +939,26 @@ function Set-WinUpdServices{
     else{
 
     }
+}
+
+function Use-ForceReboot{
+    Restart-Computer -Force
+}
+
+function Show-RebootDialog{
+    $msgBoxInput =  [System.Windows.MessageBox]::Show('For full functionality of cosmo.WST - Tweaks and Fixes the Computer needs to be rebooted after usage.' + "`n`n`n" + 'Would you like to reboot NOW?' + "`n`n",'Reboot required!','YesNo','Asterisk')
+
+        switch  ($msgBoxInput) {
+            'Yes' {
+                Use-ForceReboot
+            }
+            'No' {
+                #
+            }
+            'Cancel' {
+                #
+            }
+        }
 }
 
 

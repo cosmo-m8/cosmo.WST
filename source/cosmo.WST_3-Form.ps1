@@ -16,6 +16,27 @@ $Form.Icon                    = [System.Drawing.Icon]::FromHandle((New-Object Sy
 
 
 #--------------------GUI ELEMENTS--------------------
+$Form.Add_KeyDown({
+    if($_.KeyCode -eq "Back") {
+        $ResultText.AppendText("`r`nBACKSPACE!!")
+        $mX = [System.Windows.Forms.Cursor]::Position.X
+        $mY = [System.Windows.Forms.Cursor]::Position.Y
+ 
+        $ResultText.AppendText("`r`nMaus-X: $mX | Maus-Y: $mY")
+
+        $fX = $Form.Location.X
+        $fY = $Form.Location.Y
+        $ResultText.AppendText("`r`nForm-X: $fX | Form-Y: $fY")
+
+        $mfX = $mX - $fX
+        $mfY = $mY - $fY
+        $ResultText.AppendText("`r`nMinF-X: $mfX | MinF-Y: $mfY")
+
+    }
+})
+
+$Form.KeyPreview = $true
+
 $backPN                          = New-Object system.Windows.Forms.Panel
 $backPN.height                   = 527
 $backPN.width                    = 1009
@@ -484,7 +505,7 @@ $dlWST.BackColor                 = $colBT
 $genTT.SetToolTip($dlWST, "Download this Script`r`nfor Offline-Use")
 
 $dlSDI                           = New-Object system.Windows.Forms.Button
-$dlSDI.text                      = "DL SDI"
+$dlSDI.text                      = "DL Snappy Driver Tool"
 $dlSDI.width                     = 200
 $dlSDI.height                    = 30
 $dlSDI.location                  = New-Object System.Drawing.Point(1,342)
@@ -537,7 +558,7 @@ $winUpdLB.location               = New-Object System.Drawing.Point(714,10)
 $winUpdLB.Font                   = New-Object System.Drawing.Font('Calibri',24, [System.Drawing.FontStyle]::Bold)
 
 $updatesPN                       = New-Object system.Windows.Forms.Panel
-$updatesPN.height                = 280
+$updatesPN.height                = 249
 $updatesPN.width                 = 342
 $updatesPN.location              = New-Object System.Drawing.Point(662,53)
 $updatesPN.BackColor = "#FFEB3B"
@@ -601,34 +622,43 @@ $updDisLB.text                   = "NOT RECOMMENDED!!!"
 $updDisLB.AutoSize               = $true
 $updDisLB.width                  = 25
 $updDisLB.height                 = 10
-$updDisLB.location               = New-Object System.Drawing.Point(85,230)
+$updDisLB.location               = New-Object System.Drawing.Point(85,199)
 $updDisLB.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]::Bold)
 
 $updDis                          = New-Object system.Windows.Forms.Button
 $updDis.text                     = "Disable Update Services"
 $updDis.width                    = 340
 $updDis.height                   = 30
-$updDis.location                 = New-Object System.Drawing.Point(1,249)
+$updDis.location                 = New-Object System.Drawing.Point(1,218)
 $updDis.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 #--------STATUS LOG--------
 $ResultText                      = New-Object system.Windows.Forms.TextBox
 $ResultText.multiline            = $true
 $ResultText.width                = 342
-$ResultText.height               = 150
-$ResultText.location             = New-Object System.Drawing.Point(662,371)
+$ResultText.height               = 170
+$ResultText.location             = New-Object System.Drawing.Point(662,351)
 $ResultText.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ResultText.ReadOnly        	 = $True
 $ResultText.ScrollBars           = "2"
 $ResultText.WordWrap             = $True
 $ResultText.BackColor            = $colLOG
 
+$rebPC                           = New-Object system.Windows.Forms.Button
+$rebPC.text                      = "REBOOT"
+$rebPC.width                     = 120
+$rebPC.height                    = 36
+$rebPC.location                  = New-Object System.Drawing.Point(886,312)
+$rebPC.Font                      = New-Object System.Drawing.Font('Calibri',13,[System.Drawing.FontStyle]::Bold)
+$rebPC.BackColor                 = $col2
+
+
 $statusLB                        = New-Object system.Windows.Forms.Label
 $statusLB.text                   = "Current Status:"
 $statusLB.AutoSize               = $true
 $statusLB.width                  = 100
 $statusLB.height                 = 20
-$statusLB.location               = New-Object System.Drawing.Point(659,345)
+$statusLB.location               = New-Object System.Drawing.Point(659,325)
 $statusLB.Font                   = New-Object System.Drawing.Font('Calibri',15,[System.Drawing.FontStyle]::Bold)
 
 $verLB                           = New-Object system.Windows.Forms.Label
@@ -636,12 +666,12 @@ $verLB.text                      = $ver
 $verLB.AutoSize                  = $true
 $verLB.width                     = 25
 $verLB.height                    = 10
-$verLB.location                  = New-Object System.Drawing.Point(935,355)
-$verLB.Font                      = New-Object System.Drawing.Font('Calibri',8,[System.Drawing.FontStyle]::Bold)
+$verLB.location                  = New-Object System.Drawing.Point(921,521)
+$verLB.Font                      = New-Object System.Drawing.Font('Calibri',10,[System.Drawing.FontStyle]::Bold)
 
 
 
-$Form.controls.AddRange(@($choco,$installPN,$installLB,$tweaksPN,$tweaksLB,$fixesPN,$fixesLB,$ResultText,$verLB,$statusLB,$updatesPN,$winUpdLB,$line1PN,$line2PN,$line3PN,$backPN))
+$Form.controls.AddRange(@($choco,$installPN,$installLB,$tweaksPN,$tweaksLB,$fixesPN,$fixesLB,$ResultText,$verLB,$rebPC,$statusLB,$updatesPN,$winUpdLB,$line1PN,$line2PN,$line3PN,$backPN))
 
 $installPN.controls.AddRange(@($cosmo,$bundlesLB,$essentials,$doctools,$mediatools,$consumption,$devtools,$deps,$cosmo2,$miscLB,$openAppForm,$updChocos,$tmpBT9,$tmpBT10))
 

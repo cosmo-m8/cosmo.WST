@@ -319,4 +319,12 @@ $updDis.Add_Click({
     Set-WinUpdServices $false
 })
 
+#---------------------
+$verLB.Add_Click({
+    Write-Log("HAHAHAH")
+})
+
+$rebPC.Add_Click({
+    Show-RebootDialog
+})
 

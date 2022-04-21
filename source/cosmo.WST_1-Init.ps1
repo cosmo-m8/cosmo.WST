@@ -1,21 +1,13 @@
 Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
-#--------------------GET ADMIN PRIVILEGE--------------------
-<#
-$ErrorActionPreference = 'SilentlyContinue'
-$wshell = New-Object -ComObject Wscript.Shell
-$Button = [System.Windows.MessageBoxButton]::YesNoCancel
-$ErrorIco = [System.Windows.MessageBoxImage]::Error
-If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
-	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-	Exit
-}
-#>
+[void][Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms')
+
+Add-Type -AssemblyName PresentationFramework
 
 
 #--------------------GLOBAL VARIABLES--------------------
-$ver            = "v1.0.0-220419"
+$ver            = "v1.1.0-220421"
 #$colBG			= "#e9e9e9"			# Grey 				- Forms
 #$colBG			= "#8BC34A"			# Light Green 500	- Forms
 #$colBG			= "#7986CB"			# Indigo 300		- Forms
