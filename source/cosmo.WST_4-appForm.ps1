@@ -99,5 +99,3 @@ $line1PN.BackColor               = $colSEP
 $appForm.controls.AddRange(@($appFormPN,$appFormLB))
 
 $appFormPN.controls.AddRange(@($fzilla,$utilsLB,$parsec,$vbox,$docappsLB,$vlc,$mediaappsLB))
-
-

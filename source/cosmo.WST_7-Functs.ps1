@@ -960,5 +960,3 @@ function Show-RebootDialog{
             }
         }
 }
-
-

@@ -1,4 +1,4 @@
-$Name = "testapp"
+$Name = "cosmo.WST_BUILD"
 
 
 powershell -noexit -ExecutionPolicy Bypass -File .\$Name.ps1

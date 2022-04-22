@@ -231,73 +231,63 @@ $nfs.Add_Click({
 })
 
 $dlWST.Add_Click({
-    
-    $Url = 'https://t.ly/R8f5' 
-    $ZipFile = '$home\Desktop\' + $(Split-Path -Path $Url -Leaf) 
-    $Destination= '$home\Desktop\' 
-    <#
-    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+    $Url = "https://raw.githubusercontent.com/cosmo-m8/cosmo.WST/main/dist/cosmo.WST.ps1"
+    $DownloadZipFile = "$($env:USERPROFILE)\Desktop\cosmo.WST.ps1"
+    $ExtractPath = "$($env:USERPROFILE)\Desktop\"
+    Invoke-WebRequest -Uri $Url -OutFile $DownloadZipFile
+    Start-Process $ExtractPath
 
-    $ExtractShell = New-Object -ComObject Shell.Application 
-    $Files = $ExtractShell.Namespace($ZipFile).Items() 
-    $ExtractShell.NameSpace($Destination).CopyHere($Files)
-    #>
-    Invoke-WebRequest -Uri $Url -OutFile '$home\Desktop\cosmo.WST.ps1'
     Write-Log ("Downloaded and Extracted cosmo.WST to the Desktop")
 })
 
 $dlSDI.Add_Click({
-    $Url = 'http://admin.bosnarlogistics.de/dl/SDI_R2201.zip' 
-    $ZipFile = '$env:USERPROFILE\Desktop\' + $(Split-Path -Path $Url -Leaf) 
-    $Destination= '$env:USERPROFILE\Desktop\' 
- 
-    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
-
+    $Url = "https://drive.google.com/uc?export=download&id=1-9eI1SVl3miSbHMU9dNlk5uyivR6saMK"
+    $DownloadZipFile = "$($env:USERPROFILE)\Desktop\SDI_R2201_i220228.zip"
+    $ExtractPath = "$($env:USERPROFILE)\Desktop\"
+    Invoke-WebRequest -Uri $Url -OutFile $DownloadZipFile
     $ExtractShell = New-Object -ComObject Shell.Application 
-    $Files = $ExtractShell.Namespace($ZipFile).Items() 
-    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+    $ExtractFiles = $ExtractShell.Namespace($DownloadZipFile).Items() 
+    $ExtractShell.NameSpace($ExtractPath).CopyHere($ExtractFiles) 
+    Start-Process $ExtractPath
 
     Write-Log ("Downloaded and Extracted SDI to the Desktop")
 })
 
 $dlSysIntMicro.Add_Click({
-    $Url = 'http://admin.bosnarlogistics.de/dl/SysIntMicro.zip' 
-    $ZipFile = '$env:USERPROFILE\Desktop\' + $(Split-Path -Path $Url -Leaf) 
-    $Destination= '$env:USERPROFILE\Desktop\' 
- 
-    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
-
+    $Url = "https://drive.google.com/uc?export=download&id=10M3nyJm0ZVDE6dOOwkrFzbrlFuhEulS_"
+    $DownloadZipFile = "$($env:USERPROFILE)\Desktop\SysIntMicro.zip"
+    $ExtractPath = "$($env:USERPROFILE)\Desktop\"
+    Invoke-WebRequest -Uri $Url -OutFile $DownloadZipFile
     $ExtractShell = New-Object -ComObject Shell.Application 
-    $Files = $ExtractShell.Namespace($ZipFile).Items() 
-    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+    $ExtractFiles = $ExtractShell.Namespace($DownloadZipFile).Items() 
+    $ExtractShell.NameSpace($ExtractPath).CopyHere($ExtractFiles) 
+    Start-Process $ExtractPath
 
     Write-Log ("Downloaded and Extracted SysInternals Lite to the Desktop")
 })
 
 $dlSysIntMini.Add_Click({
-    $Url = 'http://admin.bosnarlogistics.de/dl/SysIntMini.zip' 
-    $ZipFile = '$home\Desktop\' + $(Split-Path -Path $Url -Leaf) 
-    $Destination= '$home\Desktop\' 
- 
-    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
-
+    $Url = "https://drive.google.com/uc?export=download&id=10a4FZhgRSXl_21VYp4b9kl_2CfyNyAsz"
+    $DownloadZipFile = "$($env:USERPROFILE)\Desktop\SysIntMini.zip"
+    $ExtractPath = "$($env:USERPROFILE)\Desktop\"
+    Invoke-WebRequest -Uri $Url -OutFile $DownloadZipFile
     $ExtractShell = New-Object -ComObject Shell.Application 
-    $Files = $ExtractShell.Namespace($ZipFile).Items() 
-    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+    $ExtractFiles = $ExtractShell.Namespace($DownloadZipFile).Items() 
+    $ExtractShell.NameSpace($ExtractPath).CopyHere($ExtractFiles) 
+    Start-Process $ExtractPath
 
     Write-Log ("Downloaded and Extracted SysInternals Mini to the Desktop")
 })
 
 $dlSysInt.Add_Click({
-    $Url = 'https://download.sysinternals.com/files/SysinternalsSuite.zip' 
-    $ZipFile = '$home\Desktop\' + $(Split-Path -Path $Url -Leaf) 
-    $Destination= '$home\Desktop\' 
- 
-    Invoke-WebRequest -Uri $Url -OutFile $ZipFile
-
+    $Url = "https://drive.google.com/uc?export=download&id=10Ukq6yAnpHOFUe0GRPBmRtF8x-fOfmKZ"
+    $DownloadZipFile = "$($env:USERPROFILE)\Desktop\SysIntSuite.zip"
+    $ExtractPath = "$($env:USERPROFILE)\Desktop\"
+    Invoke-WebRequest -Uri $Url -OutFile $DownloadZipFile
     $ExtractShell = New-Object -ComObject Shell.Application 
-    $Files = $ExtractShell.Namespace($ZipFile).Items() 
-    $ExtractShell.NameSpace($Destination).CopyHere($Files)
+    $ExtractFiles = $ExtractShell.Namespace($DownloadZipFile).Items() 
+    $ExtractShell.NameSpace($ExtractPath).CopyHere($ExtractFiles) 
+    Start-Process $ExtractPath
 
     Write-Log ("Downloaded and Extracted SysInternals to the Desktop")
 })
@@ -327,4 +317,3 @@ $verLB.Add_Click({
 $rebPC.Add_Click({
     Show-RebootDialog
 })
-

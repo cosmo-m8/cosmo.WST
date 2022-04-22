@@ -4,5 +4,3 @@ $iconBase64                      = 'AAABAAYAEBAAAAEAIABoBAAAZgAAABgYAAABACAAiAkA
 $iconBytes                    = [Convert]::FromBase64String($iconBase64)
 $stream                       = New-Object IO.MemoryStream($iconBytes, 0, $iconBytes.Length)
 $stream.Write($iconBytes, 0, $iconBytes.Length)
-
-

@@ -680,5 +680,3 @@ $tweaksPN.controls.AddRange(@($restorePt,$essenCfg,$UessenCfg,$cosmoCfg,$UcosmoC
 $fixesPN.controls.AddRange(@($phoneFix,$updReset,$power,$powerCfg,$hyperV,$nfs,$dlWST,$dlSDI,$dlSysIntMicro,$dlSysIntMini,$dlSysInt))
 
 $updatesPN.controls.AddRange(@($updDef,$updLB1,$updLB2,$updLB3,$updLB4,$updSec,$updEn,$updDis,$updDisLB))
-
-
